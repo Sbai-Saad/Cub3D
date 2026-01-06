@@ -1,5 +1,5 @@
 CC    = cc
-CFLAGS = -I.
+CFLAGS = -Wall -Wextra -Werror -I.
 NAME  = Cub3D
 SRCS  = main.c\
 		mainUtils.c\
@@ -35,8 +35,3 @@ fclean: clean
 	@rm -f $(NAME)
 
 re: fclean all
-
-test: 
-	cc test.c -lm $(LIBS) -o test
-rmt:
-	rm test
