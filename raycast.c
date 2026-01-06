@@ -1,125 +1,221 @@
 #include "Cub3D.h"
 
-char map_at(t_cub* c, int x, int y)
+static t_vec	vec_add(t_vec a, t_vec b)
 {
-    if (!c->map) return '1';
-    if (x < 0 || y < 0 || x >= c->map_w || y >= c->map_h) return '1';
-    return c->map[y][x];
+	t_vec	v;
+
+	v.x = a.x + b.x;
+	v.y = a.y + b.y;
+	return (v);
 }
 
-static int clampi(int v, int lo, int hi)
+static t_vec	vec_scale(t_vec v, double s)
 {
-    if (v < lo) return lo;
-    if (v > hi) return hi;
-    return v;
+	t_vec	out;
+
+	out.x = v.x * s;
+	out.y = v.y * s;
+	return (out);
 }
 
-void render_frame(t_cub* c)
+char	map_at(t_cub *c, int x, int y)
 {
-    int y = 0;
-    while (y < HEIGHT) {
-        unsigned int col;
-        if (y < HEIGHT/2) col = c->ceil_color;
-        else col = c->floor_color;
-        int xclr = 0;
-        while (xclr < WIDTH) {
-            put_px(c->frame, xclr, y, col);
-            ++xclr;
-        }
-        ++y;
-    }
+	if (c->map == NULL)
+		return ('1');
+	if (x < 0 || y < 0 || x >= c->map_w || y >= c->map_h)
+		return ('1');
+	return (c->map[y][x]);
+}
 
-    int x = 0;
-    while (x < WIDTH) {
-        double cameraX = 2.0 * x / (double)WIDTH - 1.0;
-        double rayDirX = c->dirX + c->planeX * cameraX;
-        double rayDirY = c->dirY + c->planeY * cameraX;
+static void	init_ray_dir(t_cub *c, struct s_ray *r, int x)
+{
+	double	camera;
+	t_vec	raydir;
+	t_vec	delta;
 
-        int mapX = (int)c->posX;
-        int mapY = (int)c->posY;
+	camera = 2.0 * x / (double)WIDTH - 1.0;
+	raydir = vec_add((t_vec){c->dirx, c->diry},
+		vec_scale((t_vec){c->planex, c->planey}, camera));
+	r->raydirx = raydir.x;
+	r->raydiry = raydir.y;
+	r->mapx = (int)c->posx;
+	r->mapy = (int)c->posy;
+	delta.x = 1e30;
+	delta.y = 1e30;
+	if (raydir.x != 0.0)
+		delta.x = fabs(1.0 / raydir.x);
+	if (raydir.y != 0.0)
+		delta.y = fabs(1.0 / raydir.y);
+	r->deltadistx = delta.x;
+	r->deltadisty = delta.y;
+}
 
-        double deltaDistX;
-        double deltaDistY;
-        if (rayDirX == 0.0) deltaDistX = 1e30; else deltaDistX = fabs(1.0 / rayDirX);
-        if (rayDirY == 0.0) deltaDistY = 1e30; else deltaDistY = fabs(1.0 / rayDirY);
+static void	init_ray_steps(t_cub *c, struct s_ray *r)
+{
+	if (r->raydirx < 0)
+	{
+		r->stepx = -1;
+		r->sidedistx = (c->posx - r->mapx) * r->deltadistx;
+	}
+	else
+	{
+		r->stepx = 1;
+		r->sidedistx = (r->mapx + 1.0 - c->posx) * r->deltadistx;
+	}
+	if (r->raydiry < 0)
+	{
+		r->stepy = -1;
+		r->sidedisty = (c->posy - r->mapy) * r->deltadisty;
+	}
+	else
+	{
+		r->stepy = 1;
+		r->sidedisty = (r->mapy + 1.0 - c->posy) * r->deltadisty;
+	}
+}
 
-        double sideDistX, sideDistY;
-        int stepX, stepY;
+static void	init_ray(t_cub *c, struct s_ray *r, int x)
+{
+	init_ray_dir(c, r, x);
+	init_ray_steps(c, r);
+}
 
-        if (rayDirX < 0)
-        {
-            stepX = -1;
-            sideDistX = (c->posX - mapX) * deltaDistX;
-        }
-        else             { stepX =  1; sideDistX = (mapX + 1.0 - c->posX) * deltaDistX; }
-        if (rayDirY < 0) { stepY = -1; sideDistY = (c->posY - mapY) * deltaDistY; }
-        else             { stepY =  1; sideDistY = (mapY + 1.0 - c->posY) * deltaDistY; }
+static void	compute_slice(t_cub *c, struct s_ray *r)
+{
+	r->lineh = (int)(HEIGHT / (r->perpwalldist + 1e-6));
+	r->starty = -r->lineh / 2 + HEIGHT / 2;
+	r->endy = r->lineh / 2 + HEIGHT / 2;
+	if (r->starty < 0)
+		r->starty = 0;
+	if (r->endy >= HEIGHT)
+		r->endy = HEIGHT - 1;
+	if (r->side == 0)
+		r->wallx = c->posy + r->perpwalldist * r->raydiry;
+	else
+		r->wallx = c->posx + r->perpwalldist * r->raydirx;
+	r->wallx -= floor(r->wallx);
+}
 
-        int hit = 0, side = 0;
-        while (!hit) {
-            if (sideDistX < sideDistY) { sideDistX += deltaDistX; mapX += stepX; side = 0; }
-            else                       { sideDistY += deltaDistY; mapY += stepY; side = 1; }
-            char cell = map_at(c, mapX, mapY);
-            if (cell != '0') hit = 1;
-        }
+static t_tex	*pick_tex(t_cub *c, struct s_ray *r)
+{
+	if (r->side == 0)
+	{
+		if (r->raydirx < 0)
+			r->texid = TEX_WE;
+		else
+			r->texid = TEX_EA;
+	}
+	else if (r->raydiry < 0)
+		r->texid = TEX_NO;
+	else
+		r->texid = TEX_SO;
+	if (r->texid >= 0 && r->texid < TEX_MAX && c->has_tex[r->texid])
+		return (&c->wall[r->texid]);
+	return (NULL);
+}
 
-        double perpWallDist;
-        if (side == 0) {
-            double denom = rayDirX;
-            if (denom == 0.0) denom = 1e-9;
-            perpWallDist = (mapX - c->posX + (1 - stepX) / 2.0) / denom;
-        } else {
-            double denom = rayDirY;
-            if (denom == 0.0) denom = 1e-9;
-            perpWallDist = (mapY - c->posY + (1 - stepY) / 2.0) / denom;
-        }
-        if (perpWallDist < 1e-6) perpWallDist = 1e-6;
+static void	draw_tex_slice(t_cub *c, struct s_ray *r, int x, t_tex *tex)
+{
+	double	step;
+	double	texpos;
+	int	texx;
+	int	texy;
+	int	y;
 
-        int lineH  = (int)(HEIGHT / perpWallDist);
-        int startY = clampi(-lineH / 2 + HEIGHT / 2, 0, HEIGHT - 1);
-        int endY   = clampi( lineH / 2 + HEIGHT / 2, 0, HEIGHT - 1);
+	texx = (int)(r->wallx * tex->w);
+	if ((r->side == 0 && r->raydirx > 0) || (r->side == 1 && r->raydiry < 0))
+		texx = tex->w - texx - 1;
+	step = (double)tex->h / (double)r->lineh;
+	texpos = (r->starty - HEIGHT / 2.0 + r->lineh / 2.0) * step;
+	y = r->starty;
+	while (y <= r->endy)
+	{
+		texy = (int)texpos;
+		texpos += step;
+		put_px(c->frame, x, y, tex_sample_rgba(tex, texx, texy));
+		y = y + 1;
+	}
+}
 
-        int texid;
-        if (side == 0) {
-            if (rayDirX > 0) texid = TEX_WE;
-            else texid = TEX_EA;
-        } else {
-            if (rayDirY > 0) texid = TEX_NO;
-            else texid = TEX_SO;
-        }
+static void	draw_flat_slice(t_cub *c, struct s_ray *r, int x)
+{
+	unsigned int col;
+	int		y;
 
-        double wallX;
-        if (side == 0) wallX = c->posY + perpWallDist * rayDirY;
-        else           wallX = c->posX + perpWallDist * rayDirX;
-        wallX -= floor(wallX);
+	col = pack_rgba(180 + 30 * (r->side == 0),
+		180 + 30 * (r->side == 0), 180 + 30 * (r->side == 0), 255);
+	y = r->starty;
+	while (y <= r->endy)
+	{
+		put_px(c->frame, x, y, col);
+		y = y + 1;
+	}
+}
 
-        t_tex* T = NULL;
-        if (texid >= 0 && texid < TEX_MAX && c->has_tex[texid]) T = &c->wall[texid];
+static void	project_and_draw(t_cub *c, struct s_ray *r, int x)
+{
+	t_tex	*tex;
 
-        if (!T || !T->pixels) {
-            unsigned int wall;
-            if (side == 0) wall = pack_rgba(200,200,200,255);
-            else wall = pack_rgba(150,150,150,255);
-            int yflat = startY;
-            while (yflat <= endY) {
-                put_px(c->frame, x, yflat, wall);
-                ++yflat;
-            }
-        } else {
-            int texW = (int)T->w, texH = (int)T->h;
-            int texX = (int)(wallX * texW);
-            double step = (double)texH / (double)lineH;
-            double texPos = (startY - HEIGHT / 2.0 + lineH / 2.0) * step;
+	compute_slice(c, r);
+	tex = pick_tex(c, r);
+	if (tex != NULL && tex->pixels != NULL)
+		draw_tex_slice(c, r, x, tex);
+	else
+		draw_flat_slice(c, r, x);
+}
 
-            int ytex = startY;
-            while (ytex <= endY) {
-                int texY = (int)texPos;
-                texPos += step;
-                uint32_t rgba = tex_sample_rgba(T, texX, texY);
-                put_px(c->frame, x, ytex, rgba);
-                ++ytex;
-            }
-        }
-        ++x;
-    }
+static void	cast_column(t_cub *c, int x)
+{
+	struct s_ray	ray;
+
+	init_ray(c, &ray, x);
+	ray.side = 0;
+	while (map_at(c, ray.mapx, ray.mapy) == '0')
+	{
+		if (ray.sidedistx < ray.sidedisty)
+		{
+			ray.sidedistx += ray.deltadistx;
+			ray.mapx += ray.stepx;
+			ray.side = 0;
+		}
+		else
+		{
+			ray.sidedisty += ray.deltadisty;
+			ray.mapy += ray.stepy;
+			ray.side = 1;
+		}
+	}
+	if (ray.side == 0)
+		ray.perpwalldist = ray.sidedistx - ray.deltadistx;
+	else
+		ray.perpwalldist = ray.sidedisty - ray.deltadisty;
+	project_and_draw(c, &ray, x);
+}
+
+void	render_frame(t_cub *c)
+{
+	int	x;
+	int	y;
+	unsigned int	col;
+
+	y = 0;
+	while (y < HEIGHT)
+	{
+		col = c->floor_color;
+		if (y < HEIGHT / 2)
+			col = c->ceil_color;
+		x = 0;
+		while (x < WIDTH)
+		{
+			put_px(c->frame, x, y, col);
+			x = x + 1;
+		}
+		y = y + 1;
+	}
+	x = 0;
+	while (x < WIDTH)
+	{
+		cast_column(c, x);
+		x = x + 1;
+	}
 }

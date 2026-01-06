@@ -1,6 +1,7 @@
 #include "Cub3D.h"
 
-unsigned int pack_rgba(uint8_t r, uint8_t g, uint8_t b, uint8_t a) {
+unsigned int pack_rgba(uint8_t r, uint8_t g, uint8_t b, uint8_t a)
+{
     return ((unsigned int)r << 24) | ((unsigned int)g << 16) | ((unsigned int)b << 8) | (unsigned int)a;
 }
 

@@ -1,9 +1,19 @@
 CC    = cc
+CFLAGS = -I.
 NAME  = Cub3D
 SRCS  = main.c\
+		mainUtils.c\
 		raycast.c\
 		texture.c\
-		parse.c\
+		parsing/parse.c\
+		parsing/parse_utils.c\
+		parsing/parse_io.c\
+		parsing/parse_spawn.c\
+		parsing/parse_color.c\
+		parsing/parse_header.c\
+		parsing/parse_validate.c\
+		parsing/parse_free.c\
+		parsing/parse_map_fill.c\
 		util.c
 OBJS  = $(SRCS:.c=.o)
 MLX   = ./MLX42/build/libmlx42.a
