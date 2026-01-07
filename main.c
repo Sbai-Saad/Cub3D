@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/01/07 22:59:15 by sasbai            #+#    #+#             */
+/*   Updated: 2026/01/08 00:19:33 by marvin           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Cub3D.h"
 
 static void	on_key(mlx_key_data_t key, void *param)
@@ -20,17 +32,17 @@ static void	update_move(t_cub *cub, double ms)
 		try_move(cub, cub->dirx * ms, cub->diry * ms);
 	if (mlx_is_key_down(cub->mlx, MLX_KEY_S))
 		try_move(cub, -cub->dirx * ms, -cub->diry * ms);
-	if (mlx_is_key_down(cub->mlx, MLX_KEY_A))
-		try_move(cub, left_x * ms, left_y * ms);
 	if (mlx_is_key_down(cub->mlx, MLX_KEY_D))
+		try_move(cub, left_x * ms, left_y * ms);
+	if (mlx_is_key_down(cub->mlx, MLX_KEY_A))
 		try_move(cub, -left_x * ms, -left_y * ms);
 }
 
 static void	update_rotate(t_cub *cub, double rs)
 {
-	if (mlx_is_key_down(cub->mlx, MLX_KEY_LEFT))
-		rotate_player(cub, rs);
 	if (mlx_is_key_down(cub->mlx, MLX_KEY_RIGHT))
+		rotate_player(cub, rs);
+	if (mlx_is_key_down(cub->mlx, MLX_KEY_LEFT))
 		rotate_player(cub, -rs);
 }
 
@@ -57,7 +69,7 @@ int	main(int argc, char **argv)
 	const char	*map_path;
 
 	map_path = NULL;
-	if (argc > 1)
+	if (argc == 2)
 		map_path = argv[1];
 	ret = init_game(&cub, map_path);
 	if (ret != 0)

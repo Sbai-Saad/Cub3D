@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   mainUtils.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sasbai <sasbai@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/01/07 22:59:22 by sasbai            #+#    #+#             */
+/*   Updated: 2026/01/07 22:59:23 by sasbai           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Cub3D.h"
 
 void	rotate_player(t_cub *cub, double angle)
@@ -49,7 +61,7 @@ static int	init_colors_and_map(t_cub *cub, const char *map_path)
 
 static int	init_window_and_frame(t_cub *cub)
 {
-	cub->mlx = mlx_init(WIDTH, HEIGHT, "KYOB TROI DI", true);
+	cub->mlx = mlx_init(WIDTH, HEIGHT, "KYOB TROI DI", false);
 	if (!cub->mlx)
 		return (1);
 	cub->frame = mlx_new_image(cub->mlx, WIDTH, HEIGHT);

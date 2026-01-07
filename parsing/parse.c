@@ -41,6 +41,17 @@ static int	read_rows(const char *path, char **file, ssize_t *len,
 	return (0);
 }
 
+static int	validate_extension(const char *path)
+{
+	size_t	len;
+
+	len = s_len(path);
+	if (len < 4 || path[len - 4] != '.' || path[len - 3] != 'c'
+		|| path[len - 2] != 'u' || path[len - 1] != 'b')
+		return (write(2, "Error:\nmap must end with .cub\n", 30), -1);
+	return (0);
+}
+
 static int	parse_sections(t_cub *c, char **rows, int row_count)
 {
 	int	map_start;
@@ -65,6 +76,8 @@ int	parse_map_file(t_cub *c, const char *path)
 	char			*file;
 	t_rows_result	rows;
 
+	if (validate_extension(path) != 0)
+		return (-1);
 	if (read_rows(path, &file, &len, &rows) != 0)
 		return (-1);
 	if (parse_sections(c, rows.rows, rows.row_count) != 0)

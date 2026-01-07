@@ -18,17 +18,22 @@ SRCS  = main.c\
 		parsing/parse_map_fill.c\
 		util.c
 OBJS  = $(SRCS:.c=.o)
-MLX   = ./MLX42/build/libmlx42.a
+MLX42   = ./MLX42/build/libmlx42.a
 
 GLFW_LIBS := $(shell pkg-config --static --libs glfw3 2>/dev/null)
 
-LIBS  = $(MLX) $(GLFW_LIBS)
+LIBS  = $(MLX42) $(GLFW_LIBS)
 
 
-all: $(NAME)
+all: MLX $(NAME)
 
 $(NAME): $(OBJS) Cub3D.h
 	$(CC) $(OBJS) $(LIBS) -lglfw -lm -o $(NAME)
+
+MLX:
+	@if [ ! -f ./MLX42/build/libmlx42.a ]; then \
+		cd MLX42 && cmake -B build && cmake --build build; \
+	fi
 
 clean:
 	@rm -f $(OBJS)
