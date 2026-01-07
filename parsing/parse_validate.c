@@ -60,3 +60,13 @@ int	validate_closed(t_cub *c)
 	}
 	return (0);
 }
+
+int	push_row(char **rows, int *row_count, char *line)
+{
+	rstrip(line);
+	rows[*row_count] = copy_line(line);
+	if (rows[*row_count] == NULL)
+		return (-1);
+	*row_count = *row_count + 1;
+	return (0);
+}

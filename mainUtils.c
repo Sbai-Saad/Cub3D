@@ -1,23 +1,5 @@
 #include "Cub3D.h"
 
-void	error_exit(void)
-{
-	exit(EXIT_FAILURE);
-}
-
-void	try_move(t_cub *cub, double dx, double dy)
-{
-	double	nx;
-	double	ny;
-
-	nx = cub->posx + dx;
-	ny = cub->posy + dy;
-	if (map_at(cub, (int)nx, (int)cub->posy) == '0')
-		cub->posx = nx;
-	if (map_at(cub, (int)cub->posx, (int)ny) == '0')
-		cub->posy = ny;
-}
-
 void	rotate_player(t_cub *cub, double angle)
 {
 	double	old_dir_x;
@@ -50,10 +32,8 @@ int	load_textures(t_cub *cub)
 	return (0);
 }
 
-int	init_game(t_cub *cub, const char *map_path)
+static int	init_colors_and_map(t_cub *cub, const char *map_path)
 {
-	int	ret;
-
 	if (!map_path)
 	{
 		write(2, "Error:\nno map path\n", 20);
@@ -62,9 +42,13 @@ int	init_game(t_cub *cub, const char *map_path)
 	ft_memset(cub, 0, sizeof(*cub));
 	cub->ceil_color = pack_rgba(135, 206, 235, 255);
 	cub->floor_color = pack_rgba(40, 40, 40, 255);
-	ret = parse_map_file(cub, map_path);
-	if (ret != 0)
+	if (parse_map_file(cub, map_path) != 0)
 		return (1);
+	return (0);
+}
+
+static int	init_window_and_frame(t_cub *cub)
+{
 	cub->mlx = mlx_init(WIDTH, HEIGHT, "KYOB TROI DI", true);
 	if (!cub->mlx)
 		return (1);
@@ -72,6 +56,15 @@ int	init_game(t_cub *cub, const char *map_path)
 	if (!cub->frame)
 		return (1);
 	if (mlx_image_to_window(cub->mlx, cub->frame, 0, 0) < 0)
+		return (1);
+	return (0);
+}
+
+int	init_game(t_cub *cub, const char *map_path)
+{
+	if (init_colors_and_map(cub, map_path) != 0)
+		return (1);
+	if (init_window_and_frame(cub) != 0)
 		return (1);
 	if (load_textures(cub) != 0)
 	{

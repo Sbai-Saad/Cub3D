@@ -44,6 +44,24 @@ int	parse_rgb(const char *s, unsigned int *out_rgba)
 	if (*s != '\0')
 		return (-1);
 	*out_rgba = pack_rgba((uint8_t)vals[0], (uint8_t)vals[1],
-		(uint8_t)vals[2], 255);
+			(uint8_t)vals[2], 255);
 	return (0);
+}
+
+void	error_exit(void)
+{
+	exit(EXIT_FAILURE);
+}
+
+void	try_move(t_cub *cub, double dx, double dy)
+{
+	double	nx;
+	double	ny;
+
+	nx = cub->posx + dx;
+	ny = cub->posy + dy;
+	if (map_at(cub, (int)nx, (int)cub->posy) == '0')
+		cub->posx = nx;
+	if (map_at(cub, (int)cub->posx, (int)ny) == '0')
+		cub->posy = ny;
 }

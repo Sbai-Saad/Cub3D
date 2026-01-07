@@ -3,7 +3,9 @@ CFLAGS = -Wall -Wextra -Werror -I.
 NAME  = Cub3D
 SRCS  = main.c\
 		mainUtils.c\
-		raycast.c\
+		raycast/raycast.c\
+		raycast/raycastUtils.c\
+		raycast/raycastUtils2.c\
 		texture.c\
 		parsing/parse.c\
 		parsing/parse_utils.c\

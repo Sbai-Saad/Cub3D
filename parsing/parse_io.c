@@ -54,3 +54,14 @@ int	read_all(const char *path, char **out_buf, ssize_t *out_len)
 	close(fd);
 	return (ret);
 }
+
+int	is_map_char(char ch)
+{
+	if (ch == '0' || ch == '1' || ch == ' ')
+		return (1);
+	if (ch == 'N' || ch == 'S' || ch == 'E' || ch == 'W')
+		return (1);
+	if (ch == '\t')
+		return (1);
+	return (0);
+}
