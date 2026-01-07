@@ -118,6 +118,8 @@ typedef struct s_row_ctx
 }	t_row_ctx;
 
 void			error_exit(void);
+int				fill_and_validate(t_cub *c, char **rows, int start,
+					int map_h);
 void			try_move(t_cub *cub, double dx, double dy);
 void			rotate_player(t_cub *cub, double angle);
 int				load_textures(t_cub *cub);

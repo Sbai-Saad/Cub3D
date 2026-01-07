@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   raycastUtils2.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sasbai <sasbai@student.42.fr>              +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 22:59:48 by sasbai            #+#    #+#             */
-/*   Updated: 2026/01/07 22:59:50 by sasbai           ###   ########.fr       */
+/*   Updated: 2026/01/08 00:34:10 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,4 +50,17 @@ t_tex	*pick_tex(t_cub *c, struct s_ray *r)
 	if (r->texid >= 0 && r->texid < TEX_MAX && c->has_tex[r->texid])
 		return (&c->wall[r->texid]);
 	return (NULL);
+}
+
+int	fill_and_validate(t_cub *c, char **rows, int start,
+			int map_h)
+{
+	if (fill_map_rows(c, rows, start, map_h) != 0)
+		return (-1);
+	if (validate_closed(c) != 0)
+	{
+		free_map(c);
+		return (-1);
+	}
+	return (0);
 }

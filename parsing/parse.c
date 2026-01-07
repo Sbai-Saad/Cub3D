@@ -1,18 +1,5 @@
 #include "Cub3D.h"
 
-static int	fill_and_validate(t_cub *c, char **rows, int start,
-			int map_h)
-{
-	if (fill_map_rows(c, rows, start, map_h) != 0)
-		return (-1);
-	if (validate_closed(c) != 0)
-	{
-		free_map(c);
-		return (-1);
-	}
-	return (0);
-}
-
 static int	build_map(t_cub *c, char **rows, int count, int start)
 {
 	t_map_dim	dims;
