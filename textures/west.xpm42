@@ -1,0 +1,322 @@
+!XPM42
+64 64 256 2 c
+   #000000FF
+.  #0000A8FF
+X  #00A800FF
+o  #00A8A8FF
+O  #A80000FF
++  #A800A8FF
+@  #A85400FF
+#  #A8A8A8FF
+$  #545454FF
+%  #5454FCFF
+&  #54FC54FF
+*  #54FCFCFF
+=  #FC5454FF
+-  #FC54FCFF
+;  #FCFC54FF
+:  #FCFCFCFF
+>  #ECECECFF
+,  #DCDCDCFF
+<  #D0D0D0FF
+1  #C0C0C0FF
+2  #B4B4B4FF
+3  #A8A8A8FF
+4  #989898FF
+5  #8C8C8CFF
+6  #7C7C7CFF
+7  #707070FF
+8  #646464FF
+9  #545454FF
+0  #484848FF
+q  #383838FF
+w  #2C2C2CFF
+e  #202020FF
+r  #FC0000FF
+t  #EC0000FF
+y  #E00000FF
+u  #D40000FF
+i  #C80000FF
+p  #BC0000FF
+a  #B00000FF
+s  #A40000FF
+d  #980000FF
+f  #880000FF
+g  #7C0000FF
+h  #700000FF
+j  #640000FF
+k  #580000FF
+l  #4C0000FF
+z  #400000FF
+x  #FCD8D8FF
+c  #FCB8B8FF
+v  #FC9C9CFF
+b  #FC7C7CFF
+n  #FC5C5CFF
+m  #FC4040FF
+M  #FC2020FF
+N  #FC0000FF
+B  #FCA85CFF
+V  #FC9840FF
+C  #FC8820FF
+Z  #FC7800FF
+A  #E46C00FF
+S  #CC6000FF
+D  #B45400FF
+F  #9C4C00FF
+G  #FCFCD8FF
+H  #FCFCB8FF
+J  #FCFC9CFF
+K  #FCFC7CFF
+L  #FCF85CFF
+P  #FCF440FF
+I  #FCF420FF
+U  #FCF400FF
+Y  #E4D800FF
+T  #CCC400FF
+R  #B4AC00FF
+E  #9C9C00FF
+W  #848400FF
+Q  #706C00FF
+!  #585400FF
+~  #404000FF
+^  #D0FC5CFF
+/  #C4FC40FF
+(  #B4FC20FF
+)  #A0FC00FF
+_  #90E400FF
+`  #80CC00FF
+'  #74B400FF
+]  #609C00FF
+[  #D8FCD8FF
+{  #BCFCB8FF
+}  #9CFC9CFF
+|  #80FC7CFF
+ . #60FC5CFF
+.. #40FC40FF
+X. #20FC20FF
+o. #00FC00FF
+O. #00FC00FF
++. #00EC00FF
+@. #00E000FF
+#. #00D400FF
+$. #04C800FF
+%. #04BC00FF
+&. #04B000FF
+*. #04A400FF
+=. #049800FF
+-. #048800FF
+;. #047C00FF
+:. #047000FF
+>. #046400FF
+,. #045800FF
+<. #044C00FF
+1. #044000FF
+2. #D8FCFCFF
+3. #B8FCFCFF
+4. #9CFCFCFF
+5. #7CFCF8FF
+6. #5CFCFCFF
+7. #40FCFCFF
+8. #20FCFCFF
+9. #00FCFCFF
+0. #00E4E4FF
+q. #00CCCCFF
+w. #00B4B4FF
+e. #009C9CFF
+r. #008484FF
+t. #007070FF
+y. #005858FF
+u. #004040FF
+i. #5CBCFCFF
+p. #40B0FCFF
+a. #20A8FCFF
+s. #009CFCFF
+d. #008CE4FF
+f. #007CCCFF
+g. #006CB4FF
+h. #005C9CFF
+j. #D8D8FCFF
+k. #B8BCFCFF
+l. #9C9CFCFF
+z. #7C80FCFF
+x. #5C60FCFF
+c. #4040FCFF
+v. #2024FCFF
+b. #0004FCFF
+n. #0000FCFF
+m. #0000ECFF
+M. #0000E0FF
+N. #0000D4FF
+B. #0000C8FF
+V. #0000BCFF
+C. #0000B0FF
+Z. #0000A4FF
+A. #000098FF
+S. #000088FF
+D. #00007CFF
+F. #000070FF
+G. #000064FF
+H. #000058FF
+J. #00004CFF
+K. #000040FF
+L. #282828FF
+P. #FCE034FF
+I. #FCD424FF
+U. #FCCC18FF
+Y. #FCC008FF
+T. #FCB400FF
+R. #B420FCFF
+E. #A800FCFF
+W. #9800E4FF
+Q. #8000CCFF
+!. #7400B4FF
+~. #60009CFF
+^. #500084FF
+/. #440070FF
+(. #340058FF
+). #280040FF
+_. #FCD8FCFF
+`. #FCB8FCFF
+'. #FC9CFCFF
+]. #FC7CFCFF
+[. #FC5CFCFF
+{. #FC40FCFF
+}. #FC20FCFF
+|. #FC00FCFF
+ X #E000E4FF
+.X #C800CCFF
+XX #B400B4FF
+oX #9C009CFF
+OX #840084FF
++X #6C0070FF
+@X #580058FF
+#X #400040FF
+$X #FCE8DCFF
+%X #FCE0D0FF
+&X #FCD8C4FF
+*X #FCD4BCFF
+=X #FCCCB0FF
+-X #FCC4A4FF
+;X #FCBC9CFF
+:X #FCB890FF
+>X #FCB080FF
+,X #FCA470FF
+<X #FC9C60FF
+1X #F0945CFF
+2X #E88C58FF
+3X #DC8854FF
+4X #D08050FF
+5X #C87C4CFF
+6X #BC7848FF
+7X #B47044FF
+8X #A86840FF
+9X #A0643CFF
+0X #9C6038FF
+qX #905C34FF
+wX #885830FF
+eX #80502CFF
+rX #744C28FF
+tX #6C4824FF
+yX #5C4020FF
+uX #543C1CFF
+iX #483818FF
+pX #403018FF
+aX #382C14FF
+sX #28200CFF
+dX #600064FF
+fX #006464FF
+gX #006060FF
+hX #00001CFF
+jX #00002CFF
+kX #302410FF
+lX #480048FF
+zX #500050FF
+xX #000034FF
+cX #1C1C1CFF
+vX #4C4C4CFF
+bX #5C5C5CFF
+nX #404040FF
+mX #303030FF
+MX #343434FF
+NX #D8F4F4FF
+BX #B8E8E8FF
+VX #9CDCDCFF
+CX #74C8C8FF
+ZX #48C0C0FF
+AX #20B4B4FF
+SX #20B0B0FF
+DX #00A4A4FF
+FX #009898FF
+GX #008C8CFF
+HX #008484FF
+JX #007C7CFF
+KX #007878FF
+LX #007474FF
+PX #007070FF
+IX #006C6CFF
+UX #980088FF
+w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w 
+8X8X8X8X8X8X8X8X8X8XwXeXeXrXL.w w rXeXeXwX8X8X8X8X8X8X8X8X8X8X8X8X8X8X8X8X8X8X8X8X8XwXeXeXrXL.w w rXeXeXwX8X8X8X8X8X8X8X8X8X8X8X
+wXqXqXwXeXwXqXqXqXwX8X8XqXyXe w w tXeXwXeXqXqXqX8XqXwXqXqXwXqXwX8X8XqXeXwXeXqXrXrXeXeXeXqXyXe w w tXqXqXqXqXeXuXyXeXrXeXeXwXqXwX
+8X8XwXqXwXeXwX8X8X8X8XqX8XyXe w w tXtXrXqXqXqX8X8XqXwXwXeXwXwXqX8XqX8XwXqXqXqXwXwXqXwXeXwXyXe w w tX8X8XqXeXeXyXyXeXrXwXeXeX8X8X
+8X8XeXeXwXwXqXqXqX8XqXqXqXyXe w w tXeXqXwXqXqX8XqXqXwXqXwXwXqXwXqX8XqXqXwXwXqX6XwXqXeXwXeXyXe w w tXqXqX8XqXwXwXrXyXwXqXqXqX8X8X
+qX8XwXqXqXwXwX8X8X8X8X8XrXyXe w w tXqXeXqXqXqXqXqXqXwXeXeXwXeXwXqX8XqX8X6X8X8XqXwXwXeXeXrXyXe w w tXwXqX8XeXeXqXqXeXeXwXqXqX8X6X
+qX8XqXqXwXqXqXqXqX8XqX8XqXyXe w w tX8X8XqXqXwXwXeXqXqXqXwXeXrXwXeXeXqXqX8X8XqXqXqXeXrXyXrXyXe w w tXqXqXqX8X8XqXqX8XqX8X8XqX8XqX
+qXwXqXwXqXqX8X8X8XqXqXqXqXyXe w w tX8XqX8XwXeXwXwXeXqXeXwXwXtXwXwXeXwXqX8XqXqXwXeXwXeXyXrXyXe w w tXeXqXwXqXqXqX8X6X8XqXqX8X8X8X
+sXsXsXsXsXaXaXaXaXpXiXuXuXuXe w w uXuXuXiXpXaXaXaXsXsXsXsXsXsXsXsXsXsXsXsXaXaXaXaXpXiXuXuXuXe w w uXuXuXiXpXaXaXaXsXsXsXsXsXsXsX
+cXcXcXcXcXcXcXcXcXcXcXcXcXcXcXw w cXcXcXcXcXcXcXcXcXcXcXcXcXcXcXcXcXcXcXcXcXcXcXcXcXcXcXcXcXcXw w cXcXcXcXcXcXcXcXcXcXcXcXcXcXcX
+L.L.L.L.L.L.L.L.L.L.L.L.L.L.L.w w L.L.L.L.L.L.L.L.L.L.L.L.L.L.L.L.L.L.L.L.L.L.L.L.L.L.L.L.L.L.L.L.L.L.L.L.L.L.L.L.L.L.L.L.L.L.L.
+w k h h g d d d d d d d d d d d d d d d d d d d d d g h h k L.w w k h h g d d d d d d d d d d d d d d d d d d d d d g h h k L.w 
+w k g f d a f f f f k k f g f g d d g f f g f f f h h g f l e w w k f f g g g f f f f g g g g f a a f f f a f d d d f g f l e w 
+w k f f d f f g k f f g h h f f d f g f g f f g g f f f g l e w w k d g h h f g f g d d d f d f d d d f a d d a a f d d d l e w 
+w k f f f g g g k g g g f f f f d f d g h h g f g f g f d l e w w k f f f k k g f f f d g f f f a a i f d a a d a d d g f l e w 
+w k g f f g g h g f f d d g d f f f d d g f f f d f d f d l e w w k f h k h h h g d d d a d d a a a a a f f d d d d d d d l e w 
+w k h g f f g f d f d g d d f f g f f d g f d d d f f d d l e w w k g h k g f f f f f a d a d d a d d d g g d d d a a d f l e w 
+w k f f g f h f f d a d d d d g f g f f f f f d d i a f f l e w w k g g g g g f d d f f d a a a d d f d f f g a f f f g h l e w 
+w k f f h f d f d f d f d f f d d g g f a a a a a d d d d l e w w k h k g k l f f f d f f a d d d f f h f d g g f f d f h l e w 
+w z z z z z z z z z z z z z z z z z z z z z z z z z z z z z e w w z z z z z z z z z z z z z z z z z z z z z z z z z z z z z e w 
+w cXcXcXcXcXcXcXcXcXcXcXcXcXcXcXcXcXcXcXcXcXcXcXcXcXcXcXcXcXcXw w cXcXcXcXcXcXcXcXcXcXcXcXcXcXcXcXcXcXcXcXcXcXcXcXcXcXcXcXcXcXw 
+w L.L.L.L.L.L.L.L.L.L.L.L.L.L.L.L.L.L.L.L.L.L.L.L.L.L.L.L.L.L.w w L.L.L.L.L.L.L.L.L.L.L.L.L.L.L.L.L.L.L.L.L.L.L.L.L.L.L.L.L.L.w 
+d d d d d d d d d d g h h k L.w w k h h g d d d d d d d d d d d d d d d d d d d d d g h h k L.w w k h h g d d d d d d d d d d d 
+f d d a d a d a i i a a i l e w w k d a i a a d a d f f d g d f f f g d h l h z k g f d f l e w w k f h f d f f h h h g f d f d 
+a a d d a a i a a i i a a l e w w k d d a a d d f a a a d g f g h f g g g k h k z h h d f l e w w k d f g f d g f g f g f d d a 
+d d a d a d a i i a i d f l e w w k d d d d d d f f d d f f f k k h h f f g h h k k d g d l e w w k d g g g g g g f f f f d d a 
+a a d d d a a a a a i a f l e w w k d g d a a d d d g g h h k h h h h h f h g g f k g f f l e w w k g g h f g d f d f f d d d d 
+d a f d d f f d a d a d f l e w w k d d f d d d d f g g k f h h h g h g g f g h h g g f f l e w w k g f d d f f d a a d a d d a 
+f a d g h f f d d d d d f l e w w k f f f d d f h h h h k h k h g f h g g d d f f f g h f l e w w k f d f f a d d a a f d d d f 
+d f f d g f f g g f f f d l e w w k d d d g f d a h f f h h g h h g f f f f f g g f f g f l e w w k d a a a i d a i i d a a a d 
+z z z z z z z z z z z z z z e w w z z z z z z z z z z z z z z z z z z z z z z z z z z z z z e w w z z z z z z z z z z z z z z z 
+cXcXcXcXcXcXcXcXcXcXcXcXcXcXcXw w cXcXcXcXcXcXcXcXcXcXcXcXcXcXcXcXcXcXcXcXcXcXcXcXcXcXcXcXcXcXw w cXcXcXcXcXcXcXcXcXcXcXcXcXcXcX
+L.L.L.L.L.L.L.L.L.L.L.L.L.L.L.w w L.L.L.L.L.L.L.L.L.L.L.L.L.L.L.L.L.L.L.L.L.L.L.L.L.L.L.L.L.L.w w L.L.L.L.L.L.L.L.L.L.L.L.L.L.L.
+w k h h g d d d d d d d d d d d d d d d d d d d d d g h h k L.w w k h h g d d d d d d d d d d d d d d d d d d d d d g h h k L.w 
+w k h h k g f d f d d d f f d f d a d a d d a d d f d g d l e w w k d d d d a d a a d d a f f d d a a a d a d f d f g f g l e w 
+w k h f h k f f d f f f h g g f d a a d d a a a d f f f f l e w w k d g d d a a d a a d d d d g d d a d f f d f f d f f f l e w 
+w k f f f k g f f f d d h k h f f f d d d f f d a i d h g l e w w k f a a i a i i d a d f d f f g d d d f d d d g f g g g l e w 
+w k f g h h l k f f f f d h g h f d d d f d d d d d d h h l e w w k f a d a a d d a a f g d d f k h f h a f f f f f h h h l e w 
+w k g g g g h k g f d d f f f f f f a d a d f d a a d g h l e w w k d f a a d a a f f f h h f g f h g f f f d f f g g h k l e w 
+w k f h k h h l k f f d d f d f d f g d d f f f f f a g g l e w w k d f a a d d f d f f g k g f g h h g h g f f f f d d g l e w 
+w k g g h h h k l k f f d d a d d f d d f d f g f d f f h l e w w k f f d d a d f f f f f k k f f g f g f g f f d f f d f l e w 
+w z z z z z z z z z z z z z z z z z z z z z z z z z z z z z e w w z z z z z z z z z z z z z z z z z z z z z z z z z z z z z e w 
+w cXcXcXcXcXcXcXcXcXcXcXcXcXcXcXcXcXcXcXcXcXcXcXcXcXcXcXcXcXcXw w cXcXcXcXcXcXcXcXcXcXcXcXcXcXcXcXcXcXcXcXcXcXcXcXcXcXcXcXcXcXw 
+w L.L.L.L.L.L.L.L.L.L.L.L.L.L.L.L.L.L.L.L.L.L.L.L.L.L.L.L.L.L.w w L.L.L.L.L.L.L.L.L.L.L.L.L.L.L.L.L.L.L.L.L.L.L.L.L.L.L.L.L.L.w 
+d d d d d d d d d d g h h k L.w w k h h g d d d d d d d d d d d d d d d d d d d d d g h h k L.w w k h h g d d d d d d d d d d d 
+f g h g f f h k h h k g h l e w w k f f g g f d f d f h h f f g g g d d f d a d f g f f f l e w w k d f d d a d d i a a d a i d 
+g g h h h g h h h d g h g l e w w k f d f f f f f g f g h g f f f f f d d d f g k k h g g l e w w k f f d a i a a a f a d d d a 
+d g g k f h f f g f d f h l e w w k d f d f d d a f g g k k h f d g d f d d d d f h g k g l e w w k f d f i i i d a a d d f d d 
+d g d f h g f g f g d f g l e w w k d f d f a d d d g g k h k d d d f f f d d f a d g k g l e w w k d d d i i i i d d d d f d f 
+f f f h h g g f f g f f d l e w w k d a d f d f f f f f h g h h g g f g f f d f f f f g h l e w w k a a a d i i i d f d d f f d 
+f d f g h k g g d f f d i l e w w k a d f f g f d f f h h h z k k f g f g d a a f d f f h l e w w k d d a d d a a i a f f f d f 
+g g d d d a f f a a d d d l e w w k f d d f f f g f f g h g g h h h k f f f d a a d d d d l e w w k d g f d f a i a a d f d f d 
+z z z z z z z z z z z z z z e w w z z z z z z z z z z z z z z z z z z z z z z z z z z z z z e w w z z z z z z z z z z z z z z z 
+cXcXcXcXcXcXcXcXcXcXcXcXcXcXcXw w cXcXcXcXcXcXcXcXcXcXcXcXcXcXcXcXcXcXcXcXcXcXcXcXcXcXcXcXcXcXw w cXcXcXcXcXcXcXcXcXcXcXcXcXcXcX
+L.L.L.L.L.L.L.L.L.L.L.L.L.L.L.w w L.L.L.L.L.L.L.L.L.L.L.L.L.L.L.L.L.L.L.L.L.L.L.L.L.L.L.L.L.L.w w L.L.L.L.L.L.L.L.L.L.L.L.L.L.L.
+w rXeXeXwX8X8X8X8X8X8X8X8X8X8X8X8X8X8X8X8X8X8X8X8X8XwXeXeXrXL.w w rXeXeXwX8X8X8X8X8X8X8X8X8X8X8X8X8X8X8X8X8X8X8X8X8XwXeXeXrXL.w 
+w tXqXqX8XqX8X8X6X8X8X8X6X8XqXqX8X8X8XqXeXrXwXeXqXqXqX8X8XyXe w w tX8XqX8XwXqXqXqX6X6X6X8X6X8XqXqX8X8XqXqXqXwXeXqX8X8XqX6XyXe w 
+w tXqXqXqX8XwX6X6X4X4X6XqXwXqXqXqX8XqX8XqXeXwXqXqX8XqX6X8XyXe w w tXeXqXwXwXwXqXqXqX6X8X6X8X8X8XqX8XwXqXqXqXwXwXwXwXqX8X6XyXe w 
+w tXwXeXwX8XqX6X6X6X6X6XqX8XwXeXwXqXwXqX8XwXeX8X8X8XqX6X8XyXe w w tXrXqXqXwXqXwXqXwX8XqX8X8XqXqXqXwXeXwXwXwXqXwX8XqXqX8XqXyXe w 
+w tXrXtXwXrX6X8X6X6X4X6XqXwXeXwXeXqXqXqXqX8XwXqX8X8X6X6XqXyXe w w tXqXqXwXwXeXeXeXeXqXqX8X8XqXwXwXtXqXeXqX8XqXqX8X8XqX8X8XyXe w 
+w tXwXrXwXqXqX8X8X6X6X4X8XqXwXtXrXwXwX8XqX8XqXqX8X8X8X8XqXyXe w w tXrXwXqXwXrXeXeXeXeXeX8XqX8XqXwXrXwXwXeX8X8X8X6X6XqXwXeXyXe w 
+w tXwXeXrXwXqXqX8X8XqX8XqXqXqXwXeXwXwX8XqX8X8XqXqX8XqX8X8XyXe w w tXwXrXeXrXwXtXeXwXrXeXqXwX8X8XqXqXeXqXwXqX6X8X8XqX8X8XeXyXe w 
+w uXuXuXiXpXaXaXaXsXsXsXsXsXsXsXsXsXsXsXsXaXaXaXaXpXiXuXuXuXe w w uXuXuXiXpXaXaXaXsXsXsXsXsXsXsXsXsXsXsXsXaXaXaXaXpXiXuXuXuXe w 
+w cXcXcXcXcXcXcXcXcXcXcXcXcXcXcXcXcXcXcXcXcXcXcXcXcXcXcXcXcXcXw w cXcXcXcXcXcXcXcXcXcXcXcXcXcXcXcXcXcXcXcXcXcXcXcXcXcXcXcXcXcXw 
