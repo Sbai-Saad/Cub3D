@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mainUtils.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sasbai <sasbai@student.42.fr>              +#+  +:+       +#+        */
+/*   By: wimam <walidimam69@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 22:59:22 by sasbai            #+#    #+#             */
-/*   Updated: 2026/01/07 22:59:23 by sasbai           ###   ########.fr       */
+/*   Updated: 2026/01/09 16:43:49 by wimam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,9 +51,6 @@ static int	init_colors_and_map(t_cub *cub, const char *map_path)
 		write(2, "Error:\nno map path\n", 20);
 		return (1);
 	}
-	ft_memset(cub, 0, sizeof(*cub));
-	cub->ceil_color = pack_rgba(135, 206, 235, 255);
-	cub->floor_color = pack_rgba(40, 40, 40, 255);
 	if (parse_map_file(cub, map_path) != 0)
 		return (1);
 	return (0);

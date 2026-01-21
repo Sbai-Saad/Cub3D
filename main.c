@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 22:59:15 by sasbai            #+#    #+#             */
-/*   Updated: 2026/01/08 00:19:33 by marvin           ###   ########.fr       */
+/*   Updated: 2026/01/21 11:40:18 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,25 +66,16 @@ int	main(int argc, char **argv)
 {
 	t_cub		cub;
 	int			ret;
-	const char	*map_path;
 
-	map_path = NULL;
+	zero_all(&cub);
 	if (argc == 2)
-		map_path = argv[1];
-	ret = init_game(&cub, map_path);
+		cub.map_path = argv[1];
+	ret = init_game(&cub, cub.map_path);
 	if (ret != 0)
-		error_exit();
+		ft_exit(&cub, 1);
 	mlx_key_hook(cub.mlx, on_key, &cub);
 	mlx_loop_hook(cub.mlx, on_loop, &cub);
-	render_frame(&cub);
 	mlx_loop(cub.mlx);
-	tex_free(&cub.wall[TEX_NO]);
-	tex_free(&cub.wall[TEX_SO]);
-	tex_free(&cub.wall[TEX_WE]);
-	tex_free(&cub.wall[TEX_EA]);
-	free_map(&cub);
-	if (cub.frame)
-		mlx_delete_image(cub.mlx, cub.frame);
-	mlx_terminate(cub.mlx);
+	ft_exit(&cub, 0);
 	return (0);
 }

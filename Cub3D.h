@@ -11,11 +11,11 @@
 # include <math.h>
 # include "MLX42/include/MLX42/MLX42.h"
 
-# define WIDTH 800
-# define HEIGHT 600
+# define WIDTH 1090
+# define HEIGHT 900
 
-# define MOVE_S 3.0
-# define ROT_S 1.8
+# define MOVE_S 8.0
+# define ROT_S 1.8 
 
 typedef struct s_tex
 {
@@ -102,6 +102,8 @@ typedef struct s_cub
 
 	t_tex			wall[TEX_MAX];
 	bool			has_tex[TEX_MAX];
+
+	char			*map_path;
 }	t_cub;
 
 typedef struct s_rows_result
@@ -117,6 +119,7 @@ typedef struct s_row_ctx
 	int		y;
 }	t_row_ctx;
 
+void			zero_all(t_cub *cub);
 void			error_exit(void);
 int				fill_and_validate(t_cub *c, char **rows, int start,
 					int map_h);
@@ -151,6 +154,7 @@ int				alloc_map(t_cub *c, int map_h, int map_w);
 int				fill_map_rows(t_cub *c, char **rows, int start, int map_h);
 unsigned int	pack_rgba(uint8_t r, uint8_t g, uint8_t b, uint8_t a);
 void			*ft_memset(void *s, int c, size_t n);
+void			*ft_memcpy(void *dst, const void *src, size_t n);
 uint32_t		tex_sample_rgba(const t_tex *t, int x, int y);
 void			put_px(mlx_image_t *img, int x, int y, unsigned int col);
 int				is_map_char(char ch);
@@ -171,5 +175,7 @@ void			render_frame(t_cub *c);
 char			map_at(t_cub *c, int x, int y);
 int				parse_map_file(t_cub *c, const char *path);
 void			free_map(t_cub *c);
+
+void			ft_exit(t_cub *cub, int code);
 
 #endif

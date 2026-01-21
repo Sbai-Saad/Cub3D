@@ -1,11 +1,5 @@
 #include "Cub3D.h"
 
-static int	read_fail(int fd)
-{
-	close(fd);
-	return (-1);
-}
-
 static int	open_map(const char *path)
 {
 	int	fd;
@@ -19,26 +13,51 @@ static int	open_map(const char *path)
 	return (fd);
 }
 
+static int	append_chunk(char **buffer, ssize_t *total,
+			char *chunk, ssize_t bytes)
+{
+	char	*temp;
+
+	temp = malloc(*total + bytes + 1);
+	if (!temp)
+		return (free(*buffer), -1);
+	if (*buffer)
+	{
+		ft_memcpy(temp, *buffer, *total);
+		free(*buffer);
+	}
+	ft_memcpy(temp + *total, chunk, bytes);
+	*total += bytes;
+	*buffer = temp;
+	return (0);
+}
+
 static int	load_map(int fd, char **out_buf, ssize_t *out_len)
 {
-	ssize_t	size;
-	ssize_t	read_bytes;
+	char		*buffer;
+	ssize_t		total;
+	ssize_t		bytes;
+	char		chunk[4096];
 
-	size = lseek(fd, 0, SEEK_END);
-	if (size < 0 || lseek(fd, 0, SEEK_SET) < 0)
-		return (read_fail(fd));
-	*out_buf = malloc((size_t)size + 1);
-	if (*out_buf == NULL)
-		return (read_fail(fd));
-	read_bytes = read(fd, *out_buf, (size_t)size);
-	if (read_bytes != size)
+	buffer = NULL;
+	total = 0;
+	while (1)
 	{
-		free(*out_buf);
-		return (read_fail(fd));
+		bytes = read(fd, chunk, 4096);
+		if (bytes < 0)
+			return (free(buffer), close(fd), -1);
+		if (bytes == 0)
+			break ;
+		if (append_chunk(&buffer, &total, chunk, bytes) != 0)
+			return (close(fd), -1);
 	}
-	(*out_buf)[size] = '\0';
-	if (out_len != NULL)
-		*out_len = size;
+	if (!buffer)
+		buffer = malloc(1);
+	if (buffer)
+		buffer[total] = '\0';
+	*out_buf = buffer;
+	if (out_len)
+		*out_len = total;
 	return (0);
 }
 

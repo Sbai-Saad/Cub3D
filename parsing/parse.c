@@ -31,11 +31,18 @@ static int	read_rows(const char *path, char **file, ssize_t *len,
 static int	validate_extension(const char *path)
 {
 	size_t	len;
+	int		z;
 
 	len = s_len(path);
+	z = 0;
+	while (path[z] != '.')
+		z++;
+	z--;
+	if (path[z] == '/' || path[z] == ' ')
+		return (write(2, "Error:\nfile is hidden i guess also matest mawalo\n", 30), -1);
 	if (len < 4 || path[len - 4] != '.' || path[len - 3] != 'c'
 		|| path[len - 2] != 'u' || path[len - 1] != 'b')
-		return (write(2, "Error:\nmap must end with .cub\n", 30), -1);
+		return (write(2, "Error:\nmap must end with .cub a ras taro\n", 30), -1);
 	return (0);
 }
 
